@@ -3,6 +3,7 @@ from locators.order_locators import Order
 from pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 import allure
+from data import Urls
 
 
 class CheckingTransitions(BasePage):
@@ -23,5 +24,5 @@ class CheckingTransitions(BasePage):
         logo_yandex = self.wait_and_find_element(*Home.YANDEX_SCOOTER)
         logo_yandex.click()
         self.driver.switch_to.window(self.driver.window_handles[-1])
-        expected_url_dzen = Home.URL_DZEN
+        expected_url_dzen = Urls.DZEN
         WebDriverWait(self.driver, 10).until(lambda driver: self.driver.current_url == expected_url_dzen)

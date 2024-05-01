@@ -14,8 +14,7 @@ class BasePage:
         try:
             element.click()
         except ElementClickInterceptedException:
-            time.sleep(1)
-            element.click()
+            WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(element)).click()
 
     def scroll_down(self):
         self.driver.execute_script("window.scrollBy(0, 5000);")
