@@ -68,6 +68,18 @@ class OrderScooter(BasePage):
         element = self.wait_and_find_element(*Order.SUCCESS_MESSAGE)
         return element.is_displayed()
 
+    def fill_order_fields(self, order_data):
+        self.set_name_input(order_data.NAME)
+        self.set_family_input(order_data.FAMILY)
+        self.set_address_input(order_data.ADDRESS)
+        self.select_metro_station()
+        self.set_phone_input(order_data.PHONE_NUMBER)
+        self.click_next_button()
+        self.select_date_period()
+        self.select_rental_period()
+        self.click_checkbox_button()
+        self.set_comment_input(order_data.COMMENT)
+
 
 
 
